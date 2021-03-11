@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import CardInfo from './CardInfo'
-
+import CardShow from './CardShow'
 
 const CardIndex = () => {
 
@@ -20,13 +20,20 @@ const CardIndex = () => {
 
   if (!cards) return null 
   return (
-    <div>
-      { cards.map( card => ( 
-        <CardInfo key={card.name} {...cards}/>
-      ) )}
+    <>
+      <CardShow {...cards} /> 
+      {console.log('cards', cards)} 
+      <div className="cards-mapped">
+        { cards.map( card => ( 
+          <>
+            <CardInfo key={card.name} {...card} />
+            {/* <CardShow {...card} /> */}
+          </>
+        ) )}
 
       
-    </div>
+      </div>
+    </>
   )
 }
 

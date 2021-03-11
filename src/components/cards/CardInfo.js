@@ -1,9 +1,10 @@
+/*eslint-disable camelcase */
 import React from 'react'
 
-const Card = (props) => {
+const Card = ( { name, length, passengers, max_atmosphering_speed, cost_in_credits }) => {
   return (
     <>
-      {console.log('NAME', props[Math.floor(Math.random() * 10)].name  )}
+      {console.log('NAME', name )}
       <div className="card-wrapper">
         <div className="card-header">
           <div>{name}</div>
@@ -11,7 +12,11 @@ const Card = (props) => {
         </div>
         <div className="img"></div>
         <div className="info">
-          <p>Speed <span>Data</span></p>
+          <p>Cost in Credits <span>{cost_in_credits}</span></p>
+          <p>Length <span>{length}</span></p>
+          <p>Speed <span>{max_atmosphering_speed}</span></p>
+          <p>Passengers <span>{passengers}</span></p>
+          
         </div>
 
       </div>

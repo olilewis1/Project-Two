@@ -7,7 +7,7 @@ const Home = () => {
         <div className = 'instructions-div'>
           <p>Instructions</p>
         </div>
-        <Link to="/cards"> 
+        <Link to="/cards/game"> 
           <button>Start Game </button> 
         </Link> 
       </div>
