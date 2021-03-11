@@ -4,4 +4,39 @@
 
 .card-single-container { 
   border: solid 1px grey;
+  max-width: 328px;
+  max-height: 400px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 1000px;
+  height: 600px;
+  // padding: 70px;
+  margin: 0 auto;
+  border: solid 1px red;
+}
+
+.card-button {
+  display: block;
+  border: 0;
+  padding: 0;
+  background-color: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.data {
+  padding: 20px;
+}
+.image {
+  border: 1px solid green;
+  padding: 163px 164px;
+}
+.information {
+  border: 1px solid blue;
+  height: 190px;
+  width: 328px;
 }
