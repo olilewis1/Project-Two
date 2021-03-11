@@ -1,29 +1,30 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import CardInfo from './CardInfo'
 
 
 
 const CardIndex = () => {
 
   const [cards, setCards] = useState(null)
-  console.log(cards)
+  
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get('https://swapi.dev/api/starships/')
-      console.log('DATA', response)
-      setCards(response.data)
+      console.log('DATA', response.data.results)
+      setCards(response.data.results)
+      console.log('set cards', setCards)
     }
     getData()
   }, [])
 
-
+  if (!cards) return null 
   return (
     <div>
       { cards.map( card => ( 
-        <CardInfo key={card.name} {...cards}/> 
+        <p key={card.name}>{card.name} </p> 
       ) )}
+
       
     </div>
   )
