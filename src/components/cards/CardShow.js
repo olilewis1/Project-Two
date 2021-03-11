@@ -57,6 +57,9 @@ const CardShow = ( ) => {
   const handleSubmit = event => {
     event.preventDefault()
     console.log('EVENT', (event.target.value))
+    console.log('event.name', event.target.name)
+    setResult(event.target.name)
+    console.log('card face down', cardFaceDown.[event.target.name])
     setEventNumber(event.target.value)
     if (eventNumber === undefined) {
       return null && console.log('you lost')
@@ -166,7 +169,7 @@ const CardShow = ( ) => {
           </div>
           <div className="image"></div>
           <div className="information">
-            <button className="card-button" onClick={handleSubmit}  value={cardFaceUp.passengers} > Passengers - <span className="Data">{cardFaceUp.passengers} </span></button>
+            <button className="card-button" name="passengers" onClick={handleSubmit}  value={cardFaceUp.passengers} > Passengers - <span className="Data">{cardFaceUp.passengers} </span></button>
             <button className="card-button" onClick={handleSubmit}  value={cardFaceUp.MGLT} > Megalights per hour - <span className="Data">{cardFaceUp.MGLT} </span></button>
             <button className="card-button" onClick={handleSubmit}  value={cardFaceUp.cost_in_credits} > Cost - <span className="Data">{cardFaceUp.cost_in_credits} </span></button>
             <button className="card-button" onClick={handleSubmit} value={cardFaceUp.length}> Length - <span className="Data">{cardFaceUp.length} </span></button>
