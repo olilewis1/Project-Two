@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-
+import CardInfo from './'
 
 
 const CardIndex = () => {
@@ -22,7 +22,7 @@ const CardIndex = () => {
   return (
     <div>
       { cards.map( card => ( 
-        <p key={card.name}>{card.name} </p> 
+        <CardInfo key={card.name} {...cards}/>
       ) )}
 
       
