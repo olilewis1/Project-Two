@@ -10,9 +10,8 @@ const CardShow = ( ) => {
   const [cardFaceUp, setCardFaceUp] = useState('')
   const [cardFaceDown, setCardFaceDown] = useState('')
 
-  const [eventShow, setEventShow] = useState('')
+  const [eventNumber, setEventNumber] = useState('')
 
-  console.log(eventShow, setEventShow)
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get('https://swapi.dev/api/starships/')
@@ -39,7 +38,7 @@ const CardShow = ( ) => {
   const handleSubmit = event => {
     event.preventDefault()
     console.log('EVENT', (event.target.value))
-    const eventNumber = event.target.value
+    setEventNumber(event.target.value)
     if (eventNumber === undefined) {
       return null && console.log('you lost')
     }
@@ -51,7 +50,7 @@ const CardShow = ( ) => {
     if (eventNumber.split('').indexOf(',') !== -1 || eventNumber.split('').indexOf('/') !== -1 ){
       console.log('contains a comma or a n/a')
       if (eventNumber.split('').indexOf(',') !== -1) { 
-        return setEventShow(eventNumber.replace(/,/g, '')), console.log('newevent, no comma', typeof eventShow)
+        return setEventNumber(eventNumber.replace(/,/g, '')), console.log('newevent, no comma', typeof eventShow)
       } else { 
         console.log('im n/a')
       }
@@ -60,6 +59,9 @@ const CardShow = ( ) => {
     }
     if (eventNumber === 'n/a') {
       console.log('replace n/a', eventNumber.replace(/(n\/a)+/g, '0'))
+    }
+    if (cardFaceDown.passengers === 'n/a') {
+      console.log('replace n/a card down ', cardFaceDown.passengers.replace(/(n\/a)+/g, '0'))
     }
   
     if (parseInt(eventNumber) > parseInt(cardFaceDown.passengers)) {
@@ -74,6 +76,30 @@ const CardShow = ( ) => {
     console.log('type of', typeof eventNumber)
   }
 
+  // * MGLT
+
+  if (parseInt(eventNumber) > parseInt(cardFaceDown.MGLT)) {
+    console.log( 'type of', typeof eventNumber)
+    console.log('you won')
+  }
+  if (parseInt(eventNumber) < parseInt(cardFaceDown.MGLT)) {
+    console.log('you lost')
+    console.log( 'type of', typeof eventNumber)
+  }
+  if (parseInt(eventNumber) === parseInt(cardFaceDown.MGLT)) {
+    console.log('draw')
+    console.log( 'type of', typeof eventNumber)
+  }
+
+  // * COST IN CREDITS
+
+  if (eventNumber > cardFaceDown.cost_in_credits || cardFaceDown.cost_in_credits === 'unknown') { 
+    console.log('you win cost in credits')
+  } 
+  if (eventNumber < cardFaceDown.cost_in_credits || eventNumber === 'unknown') {
+    console.log('you won')
+  }
+
 
   
   if (!cards) return null 
@@ -85,18 +111,23 @@ const CardShow = ( ) => {
         <div className="card-container">
           <div onClick={handleSubmit} className="card-single-container">
             <button className="card-button"> Name - <span className="Data">{cardFaceUp.name} </span></button>
+
             <button className="card-button" value={cardFaceUp.passengers} > Passengers - <span className="Data">{cardFaceUp.passengers} </span></button>
-            <button className="card-button"> Speed - <span className="Data">{cardFaceUp.max_atmosphering_speed} </span></button>
-            <button className="card-button"> Cost - <span className="Data">{cardFaceUp.cost_in_credits} </span></button>
+            <button className="card-button" value={cardFaceUp.MGLT} > Megalights per hour - <span className="Data">{cardFaceUp.MGLT} </span></button>
+            <button className="card-button" value={cardFaceUp.cost_in_credits} > Cost - <span className="Data">{cardFaceUp.cost_in_credits} </span></button>
+
             <button className="card-button"> Length - <span className="Data">{cardFaceUp.length} </span></button>
+            <button className="card-button"> Hyperdrive Rating- <span className="Data">{cardFaceUp.hyperdrive_rating} </span></button>
 
           </div>
           <div className="card-single-container">
             <p>Name - {cardFaceDown.name} </p>
             <p>Passengers - {cardFaceDown.passengers} </p>
-            <p>Speed - {cardFaceDown.max_atmosphering_speed}</p>
+            <p>Megalights Per hour - {cardFaceDown.MGLT} </p>
+
             <p>Cost - {cardFaceDown.cost_in_credits}</p>
             <p>Length - {cardFaceDown.length} </p>
+            <p>Hyperdrive rating - {cardFaceDown.hyperdrive_rating} </p>
           </div>
         </div> 
       </div>
