@@ -105,6 +105,7 @@ p, div, button {
   border: 1px solid green;
   padding: 0;
   text-align: center;
+  backface-visibility: hidden;
 }
 .image img {
   width: 300px;
