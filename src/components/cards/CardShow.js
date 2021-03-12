@@ -10,12 +10,13 @@ const CardShow = ( ) => {
   const [cardFaceUp, setCardFaceUp] = useState('')
   const [cardFaceDown, setCardFaceDown] = useState('')
 
+  const [hasClickedEvent, setHasClickedEvent] = useState(false)
+
   // const [playerChoice, setPlayerChoice] = useState(null)
   // console.log(playerChoice)
   // const [eventNumber, setEventNumber] = useState('')
   // console.log(eventNumber)
-  // const [result, setResult] = useState('')
-  // console.log(result, setResult)
+  const [result, setResult] = useState('')
 
   // const win = 'win'
   // * GET DATA
@@ -40,16 +41,10 @@ const CardShow = ( ) => {
     setCardFaceDown(cards[Math.floor(Math.random() * 10)])
   }, [cards])
 
-  // useEffect(() => { 
-  //   if (!eventNumber) return null
-  //   //this is only run when event number changes
-  //   //logic - compare event number to facedowneeentnumber
-  //   //get fDEN name of event & full data set 
-  //   if (eventNumber > cardFaceDown[playerChoice]) {
-  //     console.log('you won')
-  //   }
-  //   console.log('im changing')
-  // }, [eventNumber])
+  useEffect(() => { 
+    setResult('nothing')
+    
+  }, [])
   
 
 
@@ -60,6 +55,7 @@ const CardShow = ( ) => {
     console.log('event', event)
     setCardFaceDown(cards[Math.floor(Math.random() * 10)])
     setCardFaceUp(cards[Math.floor(Math.random() * 10)])
+    setHasClickedEvent(false)
   }
 
 
@@ -97,16 +93,27 @@ const CardShow = ( ) => {
 
     if (cardFaceUpName < cardFaceDownName) {
       console.log('you lose')
+      setResult('lose')
     }
     if (cardFaceUpName > cardFaceDownName) {
       console.log('you win')
+      setResult('win')
     }
     if (cardFaceUpName === cardFaceDownName) {
       console.log('you draw')
+      setResult('draw')
     }
+
+    console.log('event', event)
+    setHasClickedEvent(true)
+    console.log('handleclickevent', hasClickedEvent)
   }
   
-
+  // const handleClick = event => {
+  //   console.log('event', event)
+  //   setHasClickedEvent(true)
+  //   console.log('handleclickevent', hasClickedEvent)
+  // }
   
   if (!cards) return null 
 
@@ -126,7 +133,7 @@ const CardShow = ( ) => {
             <button className="card-button" name="hyperdrive_rating" onClick={handleSubmit} value={cardFaceUp.hyperdrive_rating}> Hyperdrive Rating - <span className="data">{cardFaceUp.hyperdrive_rating} </span></button>
           </div>
         </div>
-        <div className={!event ? 'card-single-container back card' : 'card-single-container front card'}>  
+        <div className={!hasClickedEvent ? 'card-single-container back card' : 'card-single-container front card'}>  
           <div className="card-header">
             <p>Name - {cardFaceDown.name} </p>
           </div>
@@ -141,8 +148,8 @@ const CardShow = ( ) => {
         </div>
       </div>
       <div className="footer-container">
-        <span className="result">result</span>
-        { event &&
+        <span className="result">{result}</span>
+        { hasClickedEvent &&
         <button onClick={handlePlayAgain} className ="play-again-button">Play Again</button>}
       </div></> 
   )
