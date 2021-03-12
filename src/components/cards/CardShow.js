@@ -54,7 +54,7 @@ const CardShow = ( ) => {
   const handleSubmit = event => {
     event.preventDefault()
     console.log('EVENT', (event.target.value))
-    console.log('card face down', cardFaceDown.[event.target.name])
+    // console.log('card face down', cardFaceDown.[event.target.name])
     setEventNumber(parseInt(event.target.value)), console.log( typeof eventNumber)
     //Sort out numbers
 
