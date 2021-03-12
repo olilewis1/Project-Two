@@ -65,10 +65,10 @@ p, div, button {
   height: 600px;
   // padding: 70px;
   margin: 0 auto;
-  border: solid 1px red;
+  border: none;
 }
 .card-single-container {
-  border: solid 1px grey;
+  // border: solid 1px grey;
   max-width: 328px;
   max-height: 580px;
   background-image: url('../images/cardfrontbg.jpg');
@@ -102,7 +102,7 @@ p, div, button {
   pointer-events: none;
 }
 .image {
-  border: 1px solid green;
+  // border: 1px solid grey;
   padding: 0;
   text-align: center;
   backface-visibility: hidden;
@@ -111,7 +111,7 @@ p, div, button {
   width: 300px;
 }
 .information {
-  border: 1px solid blue;
+  border: 1px solid grey;
   height: 190px;
   width: 328px;
   backface-visibility: hidden;
