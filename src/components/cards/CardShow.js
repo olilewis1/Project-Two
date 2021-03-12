@@ -133,7 +133,7 @@ const CardShow = ( ) => {
             <button className="card-button" name="hyperdrive_rating" onClick={handleSubmit} value={cardFaceUp.hyperdrive_rating}> Hyperdrive Rating - <span className="data">{cardFaceUp.hyperdrive_rating} </span></button>
           </div>
         </div>
-        <div className={!hasClickedEvent ? 'card-single-container back card' : 'card-single-container front card'}>  
+        <div className={!hasClickedEvent ? 'card-single-container back card' : 'card-single-container front card'}> 
           <div className="card-header">
             <p>Name - {cardFaceDown.name} </p>
           </div>
@@ -146,6 +146,7 @@ const CardShow = ( ) => {
             <p>Hyperdrive rating - {cardFaceDown.hyperdrive_rating} </p>
           </div>
         </div>
+        
       </div>
       <div className="footer-container">
         <span className="result">{result}</span>
