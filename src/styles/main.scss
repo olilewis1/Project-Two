@@ -62,20 +62,8 @@
 
 // * GAME PAGE
 
-<<<<<<< HEAD
 p, div, button {
   color: white;
-=======
-.card-wrapper {
-  border: solid 1px grey;
-}
-
-.card-single-container { 
-  border: solid 1px grey;
-  max-width: 328px;
-  max-height: 580px;
-  margin-left: 100px;
->>>>>>> 6a0c12e6874a27b5a43508b8856493e26571404e
 }
 
 .card-container {
@@ -124,7 +112,11 @@ p, div, button {
 }
 .image {
   border: 1px solid green;
-  padding: 163px 164px;
+  padding: 0;
+  text-align: center;
+}
+.image img {
+  width: 300px;
 }
 .information {
   border: 1px solid blue;
@@ -200,12 +192,9 @@ body {
 }
 
 .back {
-<<<<<<< HEAD
   background-image: url('../images/cardback2.png');
   background-repeat: no-repeat;
   background-size: contain;
-=======
->>>>>>> 6a0c12e6874a27b5a43508b8856493e26571404e
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }

@@ -4,6 +4,9 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 // import { Link } from 'react-router-dom'
 
+import starships from '../../images/starships/starships.jpg'
+
+
 const CardShow = ( ) => {
 
   const [cards, setCards] = useState(null)
@@ -108,6 +111,8 @@ const CardShow = ( ) => {
     console.log('event', event)
     setHasClickedEvent(true)
     console.log('handleclickevent', hasClickedEvent)
+
+    console.log('cardFaceUp.length', cardFaceUp.length)
   }
   
   // const handleClick = event => {
@@ -126,7 +131,8 @@ const CardShow = ( ) => {
             <div className="logo"></div>
             <p className="name-of-starship">{cardFaceUp.name} </p>
           </div>
-          <div className="image"></div>
+          <div className="image"><img src={starships}/>
+          </div> 
           <div className="information">
             <button className="card-button" name="passengers" onClick={handleSubmit}  value={cardFaceUp.passengers} > Passengers - <span className="data">{cardFaceUp.passengers} </span></button>
             <button className="card-button" name="MGLT" onClick={handleSubmit}  value={cardFaceUp.MGLT} > Megalights per hour - <span className="data">{cardFaceUp.MGLT} </span></button>
