@@ -146,7 +146,7 @@ const CardShow = ( ) => {
             <div className="logo"></div>
             <p className="name-of-starship">{cardFaceDown.name} </p>
           </div>
-          <div className="image"></div>
+          <div className="image"><img src={starships}/></div>
           <div className="information">
             <p>Passengers - {cardFaceDown.passengers} </p>
             <p>Megalights Per hour - {cardFaceDown.MGLT} </p>

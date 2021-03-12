@@ -1,13 +1,10 @@
 
 // * HOME PAGE
-
 .home-body {
   background-color: black;
   text-align: center;
 }
-
 .instructions-div {
-
 }
 .instructions-div p{
   font-family: "Lucida Console", Monaco, monospace;
@@ -30,27 +27,23 @@
   font-size: 14px;
   letter-spacing: 1px;
   cursor: pointer;
-  box-shadow: inset 0 0 0 0 #ffda33;
+  box-shadow: inset 0 0 0 0 #FFDA33;
   -webkit-transition: ease-out 0.4s;
   -moz-transition: ease-out 0.4s;
   transition: ease-out 0.4s;
 }
-
 .slide_right:hover {
-  box-shadow: inset 400px 0 0 0 #ffd549;
+  box-shadow: inset 400px 0 0 0 #FFD549;
 }
-
 #outer {
   width: 364px;
   margin: 50px auto 0 auto;
   text-align: center;
 }
-
 // * HEADER
 // .title {
 //   background-image: "./images/header/h2.png";
 // }
-
 .header-wrapper {
   text-align: center;
   margin-bottom: 10px;
@@ -60,25 +53,10 @@
   max-width: 500px;
   margin-bottom: 10px;
 }
-
 // * GAME PAGE
-
-<<<<<<< HEAD
 p, div, button {
   color: white;
-=======
-.card-wrapper {
-  border: solid 1px grey;
 }
-
-.card-single-container { 
-  border: solid 1px grey;
-  max-width: 328px;
-  max-height: 580px;
-  margin-left: 100px;
->>>>>>> ce7b9ecd9bb0b34704ba05d3cd3f9cca5d2c6930
-}
-
 .card-container {
   display: flex;
   flex-direction: row;
@@ -89,8 +67,7 @@ p, div, button {
   margin: 0 auto;
   border: solid 1px red;
 }
-
-.card-single-container { 
+.card-single-container {
   border: solid 1px grey;
   max-width: 328px;
   max-height: 580px;
@@ -98,20 +75,16 @@ p, div, button {
   background-repeat: no-repeat;
   background-size: 110%;
 }
-
 .card-header {
   display: flex;
   flex-direction: row;
   backface-visibility: hidden;
-  
 }
-
 .logo {
   background-image: url('../images/star-wars-logo-1.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
-
 .card-button {
   display: block;
   border: 0;
@@ -122,8 +95,8 @@ p, div, button {
   width: 286px;
   border-radius: 25px;
   margin-left: 20px;
+  color: black;
 }
-
 .data {
   padding: 20px;
   pointer-events: none;
@@ -143,15 +116,12 @@ p, div, button {
   backface-visibility: hidden;
   font: 400 13.3333px Arial;
 }
-
-
 body {
   background-color: black;
   color: #555;
   font-size: 1.2em;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-
 .container {
   padding: 1em;
   margin: 50px auto;
@@ -160,7 +130,6 @@ body {
   -webkit-perspective: 800px;
   perspective: 800px;
 }
-
 .card {
   width: 340px;
   height: 580px;
@@ -171,7 +140,6 @@ body {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
-
 .face {
   position: absolute;
   width: 100%;
@@ -182,10 +150,7 @@ body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-
-
-// card flip 
-
+// card flip
 .card {
   width: 340px;
   height: 580px;
@@ -196,7 +161,6 @@ body {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
-
 .face {
   position: absolute;
   width: 100%;
@@ -207,42 +171,33 @@ body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-
 .front {
   color:black;
 }
-
 .back {
-<<<<<<< HEAD
   background-image: url('../images/cardback2.png');
   background-repeat: no-repeat;
   background-size: contain;
-=======
->>>>>>> ce7b9ecd9bb0b34704ba05d3cd3f9cca5d2c6930
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
   font-size:x-small;
 }
-
 .card:hover {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
-
-.result { 
+.result {
   background-color: #000000;
   color:#FFE81F;
   margin-right: 10px;
   font-weight: 900;
   font-size:25px;
 }
-
-.footer-container { 
+.footer-container {
   display:flex;
   justify-content: center;
 }
-
-.play-again-button { 
+.play-again-button {
   background-color: Transparent;
     background-repeat:no-repeat;
   color:#FFE81F;
@@ -250,13 +205,10 @@ body {
   font-size:20px;
   text-decoration: underline;
 }
-
-.display-nothing { 
+.display-nothing {
   font-size: 0%;
 }
-
-
-p { 
+p {
   background-color: white;
   border-radius: 25px;
   padding: 1px;
@@ -264,8 +216,11 @@ p {
   align-items: center;
   display: flex;
   justify-content: center;
+  color: black;
 }
-
-.name-of-starship { 
+.name-of-starship {
   border-radius: 5px;
+}
+.instructions-div p{
+  color: black;
 }
