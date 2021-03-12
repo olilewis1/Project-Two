@@ -170,10 +170,10 @@ const CardShow = ( ) => {
           <div className="image"></div>
           <div className="information">
             <button className="card-button" name="passengers" onClick={handleSubmit}  value={cardFaceUp.passengers} > Passengers - <span className="Data">{cardFaceUp.passengers} </span></button>
-            <button className="card-button" onClick={handleSubmit}  value={cardFaceUp.MGLT} > Megalights per hour - <span className="Data">{cardFaceUp.MGLT} </span></button>
-            <button className="card-button" onClick={handleSubmit}  value={cardFaceUp.cost_in_credits} > Cost - <span className="Data">{cardFaceUp.cost_in_credits} </span></button>
-            <button className="card-button" onClick={handleSubmit} value={cardFaceUp.length}> Length - <span className="Data">{cardFaceUp.length} </span></button>
-            <button className="card-button" onClick={handleSubmit} value={cardFaceUp.hyperdrive_rating}> Hyperdrive Rating - <span className="Data">{cardFaceUp.hyperdrive_rating} </span></button>
+            <button className="card-button" name="MGLT" onClick={handleSubmit}  value={cardFaceUp.MGLT} > Megalights per hour - <span className="Data">{cardFaceUp.MGLT} </span></button>
+            <button className="card-button" name="cost_in_credits" onClick={handleSubmit}  value={cardFaceUp.cost_in_credits} > Cost - <span className="Data">{cardFaceUp.cost_in_credits} </span></button>
+            <button className="card-button" name="length" onClick={handleSubmit} value={cardFaceUp.length}> Length - <span className="Data">{cardFaceUp.length} </span></button>
+            <button className="card-button" name="hyperdrive_rating" Click={handleSubmit} value={cardFaceUp.hyperdrive_rating}> Hyperdrive Rating - <span className="Data">{cardFaceUp.hyperdrive_rating} </span></button>
           </div>
         </div>
 
