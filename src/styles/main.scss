@@ -54,6 +54,7 @@
 .header-wrapper {
   text-align: center;
   margin-bottom: 10px;
+  backface-visibility: hidden;
 }
 .header-wrapper img {
   max-width: 500px;
@@ -62,8 +63,20 @@
 
 // * GAME PAGE
 
+<<<<<<< HEAD
 p, div, button {
   color: white;
+=======
+.card-wrapper {
+  border: solid 1px grey;
+}
+
+.card-single-container { 
+  border: solid 1px grey;
+  max-width: 328px;
+  max-height: 580px;
+  margin-left: 100px;
+>>>>>>> ce7b9ecd9bb0b34704ba05d3cd3f9cca5d2c6930
 }
 
 .card-container {
@@ -89,6 +102,8 @@ p, div, button {
 .card-header {
   display: flex;
   flex-direction: row;
+  backface-visibility: hidden;
+  
 }
 
 .logo {
@@ -104,6 +119,9 @@ p, div, button {
   background-color: none;
   cursor: pointer;
   margin-top: 20px;
+  width: 286px;
+  border-radius: 25px;
+  margin-left: 20px;
 }
 
 .data {
@@ -122,6 +140,8 @@ p, div, button {
   border: 1px solid blue;
   height: 190px;
   width: 328px;
+  backface-visibility: hidden;
+  font: 400 13.3333px Arial;
 }
 
 
@@ -189,14 +209,19 @@ body {
 }
 
 .front {
+  color:black;
 }
 
 .back {
+<<<<<<< HEAD
   background-image: url('../images/cardback2.png');
   background-repeat: no-repeat;
   background-size: contain;
+=======
+>>>>>>> ce7b9ecd9bb0b34704ba05d3cd3f9cca5d2c6930
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
+  font-size:x-small;
 }
 
 .card:hover {
@@ -226,3 +251,21 @@ body {
   text-decoration: underline;
 }
 
+.display-nothing { 
+  font-size: 0%;
+}
+
+
+p { 
+  background-color: white;
+  border-radius: 25px;
+  padding: 1px;
+  margin:18px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.name-of-starship { 
+  border-radius: 5px;
+}
