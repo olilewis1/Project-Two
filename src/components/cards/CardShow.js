@@ -42,7 +42,7 @@ const CardShow = ( ) => {
   }, [cards])
 
   useEffect(() => { 
-    setResult('nothing')
+    setResult(false)
     
   }, [])
   
@@ -56,6 +56,7 @@ const CardShow = ( ) => {
     setCardFaceDown(cards[Math.floor(Math.random() * 10)])
     setCardFaceUp(cards[Math.floor(Math.random() * 10)])
     setHasClickedEvent(false)
+    setResult('')
   }
 
 
