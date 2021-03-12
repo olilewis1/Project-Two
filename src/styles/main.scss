@@ -51,6 +51,13 @@
 //   background-image: "./images/header/h2.png";
 // }
 
+.header-wrapper {
+  text-align: center;
+}
+.header-wrapper img {
+  max-width: 500px;
+}
+
 // * GAME PAGE
 
 .card-wrapper {
@@ -85,6 +92,7 @@
 
 .data {
   padding: 20px;
+  pointer-events: none;
 }
 .image {
   border: 1px solid green;
