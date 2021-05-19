@@ -1,5 +1,5 @@
 
-# Project Two Reactathon - StarTrumps
+# Project Two Reactathon - Star Trumps
 
 ## Contents
 [Overview](#overview)<br/>
@@ -15,25 +15,27 @@
 
 
 ## <a name="overview"></a>Overview
-The second Project on the SEI Immersive Course was to build a React application that consumes a public API. We had 48 hours to complete this in a pair. My partner and I chose to make a simplified game of Top Trumps using a Star Wars API
+The second Project on the SEI Immersive Course was to build a React application that consumes a public API. We had 48 hours to complete this in a pair. My partner ([Oli Lewis](https://github.com/olilewis1))and I chose to make a simplified game of Top Trumps using a Star Wars API.
 </br>
-IMAGE
+
+![game-screenshot](./src/images/screenshot-1.png)
 
 ## <a name="project"></a>Link to Deployed Project
-Find our deployed project here:
-Directions: Start the game, click on a category on the upfacing card to beat the down facing card. Please note that the image doesn’t change on the card but the information does. 
+Find our deployed project [here](https://star-trumps.netlify.app/). </br>
+Directions: Press the start button, click on a category on the upfacing card to beat the down facing card. Please note that the image doesn’t change on the card but the information does. 
 
 ## <a name="tech"></a>Technologies Used
-* React.js
+* React.js (hooks)
 * JavaScript (ES6)
-* SASS
-* CSS
+* SCSS
 * Axios
 * Insomnia REST Client
-* *arn
-* react-router-dom
-* Star Wars API 
+* Yarn
+* React Router DOM
+* [Star Wars API](https://swapi.dev/)
 * Adobe Photoshop
+* Git & Github
+* Netlify
 
 ## <a name="brief"></a>Brief
 The app must:
@@ -56,10 +58,74 @@ Images of wireframe
 
 ### Setting Up React
 
-We used the GA London React Template.
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We used the GA London React Template. `npx create-react-app APP_NAME --template cra-template-ga-ldn`. We installed React Router DOM and Axios and `yarn` and `yarn start` to run the server. </br>
+We decided to code the majority of the project using Live Share in VSCode, whilst talking on Zoom, since we were both quite new to React and thought we would be more efficient if we worked through it together. </br>
+We created the components: Home.js, Header.js, CardIndex.js and CardInfo.js. In each we made our imports and wrote a JavaScript function. In App.js we routed the components. 
 
-We decided to code the majority of the project using Live Share 
+### Getting Data
+
+```javascript
+useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get('https://swapi.dev/api/starships/')
+      console.log('DATA', response.data.results)
+      setCards(response.data.results)
+      console.log('set cards', setCards)
+    }
+    getData()
+  }, [])
+```
+```javascript
+ { cards.map( card => ( 
+          <>
+            <CardInfo key={card.name} {...card} />
+          </>
+  ) )}
+```
+
+### Cards
+We were intitially going to have CardInfom, with data passed to it in props, to create one card that we could render onto a CardShow component. Quickly we realised this wasn't going to work for us based on our limited experience with React and decided it would be more straightforward to just render two cards on the same component as the logic. So we stuck to working on CardShow. The CardInfo could have been used for an index display, however. </br>
+In JSX we coded the strucutre of the cards, one div for the up-facing card and one for the down-facing card. 
+
+
+### game logic
+
+First we got the data from the starships endpoint that we had tested in Insomnia. 
+
+```javascript
+useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get('https://swapi.dev/api/starships/')
+      setCards(response.data.results)
+    }
+    getData()
+  }, [])
+```
+```javascript
+const [cardFaceUp, setCardFaceUp] = useState('')
+
+useEffect(() => { 
+    if (!cards) return null
+    setCardFaceUp(cards[Math.floor(Math.random() * 10)])
+  }, [cards])
+```
+
+### play again
+
+```javascript
+const handlePlayAgain = event => {
+    event.preventDefault()
+    console.log('event', event)
+    setCardFaceDown(cards[Math.floor(Math.random() * 10)])
+    setCardFaceUp(cards[Math.floor(Math.random() * 10)])
+    setHasClickedEvent(false)
+    setResult('')
+  }
+```
+
+### Home and Header
+these were two very simple componets that just had to link to other places - the Home link to the game and the Header link to Home. 
+
 
 
 ### Styling 

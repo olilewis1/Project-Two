@@ -36,7 +36,6 @@ const CardShow = ( ) => {
   useEffect(() => { 
     if (!cards) return null
     setCardFaceUp(cards[Math.floor(Math.random() * 10)])
-
   }, [cards])
 
   useEffect(() => {
