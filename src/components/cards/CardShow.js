@@ -22,6 +22,7 @@ const CardShow = ( ) => {
   const [result, setResult] = useState('')
 
   // const win = 'win'
+  
   // * GET DATA
 
   useEffect(() => {

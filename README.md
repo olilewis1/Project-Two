@@ -15,14 +15,14 @@
 
 
 ## <a name="overview"></a>Overview
-The second Project on the SEI Immersive Course was to build a React application that consumes a public API. We had 48 hours to complete this in a pair. My partner ([Oli Lewis](https://github.com/olilewis1))and I chose to make a simplified game of Top Trumps using a Star Wars API.
+The second Project on the SEI Immersive Course was to build a React application that consumes a public API. We had **48 hours** to complete this in a pair. My partner ([Oli Lewis](https://github.com/olilewis1))and I chose to make a simplified game of Top Trumps using a Star Wars API.
 </br>
 
 ![game-screenshot](./src/images/screenshot-1.png)
 
 ## <a name="project"></a>Link to Deployed Project
 Find our deployed project [here](https://star-trumps.netlify.app/). </br>
-Directions: Press the start button, click on a category on the upfacing card to beat the down facing card. Please note that the image doesn’t change on the card but the information does. 
+**Directions:** Press the start button, click on a category on the upfacing card to beat the down facing card. Please note that the image doesn’t change on the card but the information does. 
 
 ## <a name="tech"></a>Technologies Used
 * React.js (hooks)
@@ -56,18 +56,17 @@ I wireframed the two basic pages in Photoshop, screen sharing with Oli. Then we 
 Images of wireframe
 
 ### Setting Up React
-We used the GA London React Template. `npx create-react-app APP_NAME --template cra-template-ga-ldn`. We installed React Router DOM and Axios and `yarn` and `yarn start` to run the server. </br>
+We used the GA London React Template. `npx create-react-app APP_NAME --template cra-template-ga-ldn`. We installed React Router DOM and Axios. </br>
 We decided to code the majority of the project using Live Share in VSCode, whilst talking on Zoom, since we were both quite new to React and thought we would be more efficient if we worked through it together. </br>
 
 
 ### Building the Components
 We created the components: Home.js, Header.js, CardIndex.js and CardInfo.js. In each we made our imports and wrote a JavaScript function. In App.js we routed the components. </br>
-
-The Home and Header were two very simple componets that just had to link to other places - the Home link to the game and the Header link to Home. </br>
+The Home and Header are very simple componets that just have to link to other places - the Home links to the game and the Header links to Home. </br>
 
 Initially we got the data from our external API in the CardIndex Component to pass as props to CardInfo. Quickly we realised this wasn't going to work for us based on our limited experience with React and decided it would be more straightforward to just hard-code two cards on the same component as the logic. </br>
 
-So we created a new component- CardShow that would be our game-play component. We fetched the data using Axios and stored it in State. We kept the CardIndex and CardInfo incase we wanted to create an index display of all the cards.</br>
+So we created a new component- CardShow- that would be our game-play component. We fetched the data using Axios and stored it in State. We kept the CardIndex and CardInfo incase we wanted to create an index display of all the cards.</br>
 
 ```javascript
 const [cards, setCards] = useState(null)
@@ -80,11 +79,10 @@ useEffect(() => {
     getData()
   }, [])
 ```
-In JSX we coded the strucutre of the cards, one div for the up-facing card and one for the down-facing card. 
+In JSX we coded the structure of the cards, one div for the up-facing card and one for the down-facing card. 
 
 ### Game Logic
-
-To set the data for the card we created a useEffect that would choose a random card out of the 10 we had. 
+To set the data for the first card to be displayed on screen we created a useEffect that would choose a random card out of the 10 we had. 
 ```javascript
 const [cardFaceUp, setCardFaceUp] = useState('')
 
@@ -96,14 +94,6 @@ useEffect(() => {
 
 We had all the the game-play logic in a handleSubmit which ran when the player clicked on a button on the up-facing card. 
 
-```javascript
-if (cardFaceUpName === 'n/a' || cardFaceUpName === 'unknown' ) {
-      cardFaceUpName = 0
-    }
-    if (cardFaceDownName === 'n/a' || cardFaceDownName === 'unknown') {
-      cardFaceDownName = 0
-    }
-```
 win/lose/draw logic: 
 ```javascript
     if (cardFaceUpName < cardFaceDownName) {
@@ -119,23 +109,32 @@ win/lose/draw logic:
   }
 ```
 
+Oli did the conditional rendering so that when a button was clicked the down facing card flipped to a random upfacing card. 
+
 ### Manipulating the data
-It was very important that the data could be compariable with one another.
-- all had to be same data type - Number
-- had to have no commas etc 
+It was very important that the data could be compariable with one another. This was something that was frustrating at first because we didn't for-see how mixed some of the data would be in our data set. 
+We figured out that we had to:
+- change all data to a Number data type
+- remove all commas, etc.
+- turn any non-number (ie. n/a) into a number (0)
 
 ```javascript
 cardFaceUpName = cardFaceUpName.replace(/,/g, '')
 ```
-
-
+```javascript
+if (cardFaceUpName === 'n/a' || cardFaceUpName === 'unknown' ) {
+      cardFaceUpName = 0
+    }
+    if (cardFaceDownName === 'n/a' || cardFaceDownName === 'unknown') {
+      cardFaceDownName = 0
+    }
+```
 
 ### Play Again
-
+This would set another two random cards.
 ```javascript
 const handlePlayAgain = event => {
     event.preventDefault()
-    console.log('event', event)
     setCardFaceDown(cards[Math.floor(Math.random() * 10)])
     setCardFaceUp(cards[Math.floor(Math.random() * 10)])
     setHasClickedEvent(false)
@@ -143,10 +142,8 @@ const handlePlayAgain = event => {
   }
 ```
 
-
-
 ### Styling 
-Once we’d finished our MVP we went straight into styling. We split up at this point to get it done quicker, allocating ourselves different areas so our code didn’t course any merge conflicts. I added in the title made in a Font Creator App and worked on the cards - adding in the background image and editing the text, whilst my partner worked on the homepage then the win/lose/draw display on the game. 
+Once we’d finished our MVP we went straight into styling. We split up at this point to get it done quicker, allocating ourselves different areas so our code didn’t cause any merge conflicts. I added in the title made in a Font Creator App and worked on the cards - adding in the background image and editing the text, whilst my partner worked on the homepage then the win/lose/draw display on the game. 
 If we had more time it would have been good to make the cards look even more like authentic Top Trumps cards. 
 
 ## <a name="bugs"></a>Bugs
@@ -164,11 +161,14 @@ If we had more time it would have been good to make the cards look even more lik
 - 
 
 ## <a name="future"></a>Future Improvements
+- Show the correct image with the correct card
+- make styling on cards more realistic 
 
 ## <a name="learning"></a>Key Learning
 - collaborating creatively and Pair-coding successfully.
 - Keeping the code organised and commenting it.
-- Planning well before hand - we had to restart part of teh functionality a good way into the first day because we approached it wrongly. 
+- Planning well before hand - we had to restart part of the functionality a good way into the first day because we approached it wrongly. 
+- console logging regularly
 
 
 
