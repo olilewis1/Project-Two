@@ -48,7 +48,6 @@ The app must:
 ## <a name="process"></a>Process
 
 ### Planning
-
 Since the brief was more open ended we spent a good amount of time coming up with an idea that suited what we both wanted to get out of the project. </br>
 We looked through catalogues of external APIs for some inspiration. We both like Star Wars and found a Star Wars API. We thought this had potential either for a simple database type of project or something more interactive, since it had a large range of data and was free and accessible. I suggested Top Trumps as I used to play Star Wars Top Trumps a lot as a child, so we both tried to figure out how to do something similar that was achievable in the day and a half we had remaining. </br>
 We planned an MVP that would just be a simple comparison between two cards with win, lose and draw logic, with nice-to-haves being rounds of the game and an index of all of the cards. The Star Wars API had many different categories so we chose to focus on one - Starships - at first as it had the most easily comparable data, ie. lots of numbers. We practised accessing the data sets in Insomnia to make sure it was suitable for our purposes. </br>
@@ -57,50 +56,35 @@ I wireframed the two basic pages in Photoshop, screen sharing with Oli. Then we 
 Images of wireframe
 
 ### Setting Up React
-
 We used the GA London React Template. `npx create-react-app APP_NAME --template cra-template-ga-ldn`. We installed React Router DOM and Axios and `yarn` and `yarn start` to run the server. </br>
 We decided to code the majority of the project using Live Share in VSCode, whilst talking on Zoom, since we were both quite new to React and thought we would be more efficient if we worked through it together. </br>
-We created the components: Home.js, Header.js, CardIndex.js and CardInfo.js. In each we made our imports and wrote a JavaScript function. In App.js we routed the components. 
 
-### Getting Data
+
+### Building the Components
+We created the components: Home.js, Header.js, CardIndex.js and CardInfo.js. In each we made our imports and wrote a JavaScript function. In App.js we routed the components. </br>
+
+The Home and Header were two very simple componets that just had to link to other places - the Home link to the game and the Header link to Home. </br>
+
+Initially we got the data from our external API in the CardIndex Component to pass as props to CardInfo. Quickly we realised this wasn't going to work for us based on our limited experience with React and decided it would be more straightforward to just hard-code two cards on the same component as the logic. </br>
+
+So we created a new component- CardShow that would be our game-play component. We fetched the data using Axios and stored it in State. We kept the CardIndex and CardInfo incase we wanted to create an index display of all the cards.</br>
 
 ```javascript
+const [cards, setCards] = useState(null)
+
 useEffect(() => {
     const getData = async () => {
       const response = await axios.get('https://swapi.dev/api/starships/')
-      console.log('DATA', response.data.results)
       setCards(response.data.results)
-      console.log('set cards', setCards)
     }
     getData()
   }, [])
 ```
-```javascript
- { cards.map( card => ( 
-          <>
-            <CardInfo key={card.name} {...card} />
-          </>
-  ) )}
-```
-
-### Cards
-We were intitially going to have CardInfom, with data passed to it in props, to create one card that we could render onto a CardShow component. Quickly we realised this wasn't going to work for us based on our limited experience with React and decided it would be more straightforward to just render two cards on the same component as the logic. So we stuck to working on CardShow. The CardInfo could have been used for an index display, however. </br>
 In JSX we coded the strucutre of the cards, one div for the up-facing card and one for the down-facing card. 
 
+### Game Logic
 
-### game logic
-
-First we got the data from the starships endpoint that we had tested in Insomnia. 
-
-```javascript
-useEffect(() => {
-    const getData = async () => {
-      const response = await axios.get('https://swapi.dev/api/starships/')
-      setCards(response.data.results)
-    }
-    getData()
-  }, [])
-```
+To set the data for the card we created a useEffect that would choose a random card out of the 10 we had. 
 ```javascript
 const [cardFaceUp, setCardFaceUp] = useState('')
 
@@ -110,7 +94,43 @@ useEffect(() => {
   }, [cards])
 ```
 
-### play again
+We had all the the game-play logic in a handleSubmit which ran when the player clicked on a button on the up-facing card. 
+
+```javascript
+if (cardFaceUpName === 'n/a' || cardFaceUpName === 'unknown' ) {
+      cardFaceUpName = 0
+    }
+    if (cardFaceDownName === 'n/a' || cardFaceDownName === 'unknown') {
+      cardFaceDownName = 0
+    }
+```
+win/lose/draw logic: 
+```javascript
+    if (cardFaceUpName < cardFaceDownName) {
+      setResult('lose')
+    }
+    if (cardFaceUpName > cardFaceDownName) {
+      setResult('win')
+    }
+    if (cardFaceUpName === cardFaceDownName) {
+      setResult('draw')
+    }
+    setHasClickedEvent(true)
+  }
+```
+
+### Manipulating the data
+It was very important that the data could be compariable with one another.
+- all had to be same data type - Number
+- had to have no commas etc 
+
+```javascript
+cardFaceUpName = cardFaceUpName.replace(/,/g, '')
+```
+
+
+
+### Play Again
 
 ```javascript
 const handlePlayAgain = event => {
@@ -123,9 +143,6 @@ const handlePlayAgain = event => {
   }
 ```
 
-### Home and Header
-these were two very simple componets that just had to link to other places - the Home link to the game and the Header link to Home. 
-
 
 
 ### Styling 
@@ -137,7 +154,8 @@ If we had more time it would have been good to make the cards look even more lik
 - The only major thing we didnt have time to complete was getting our own images to display on the cards according to the startship it pictures. We had to just stick to one general image of Starships. 
 
 ## <a name="challenges"></a>Challenges
-- 
+- a very big obstacle we faced was that when we clicked on the buttons we would get errors, eventually we figured out it was becasue we had our onClick event on the span when it should have been on he button element.
+- Getting the images to show, a hyperlink didnt work, so we had to import it at the top. 
 - There was a merge conflict with our CSS very close to the end that we had to sort quickly. 
 
 ## <a name="wins"></a>Wins
