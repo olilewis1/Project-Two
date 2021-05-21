@@ -1,9 +1,11 @@
 
 # Project Two Reactathon - Star Trumps
+![logo](./src/images/header/h2.png)
 
 ## Contents
 [Overview](#overview)<br/>
 [Deployed Project](#project)<br/>
+[Code Installation](#install)<br/>
 [Technologies Used](#tech)<br/>
 [Brief](#brief)<br/>
 [Process](#process)<br/>
@@ -18,32 +20,49 @@
 The second Project on the SEI Immersive Course was to build a React application that consumes a public API. We had **48 hours** to complete this in a pair. My partner ([Oli Lewis](https://github.com/olilewis1))and I chose to make a simplified game of Top Trumps using a Star Wars API.
 </br>
 
-![game-screenshot](./src/images/screenshot-1.png)
-
 ## <a name="project"></a>Link to Deployed Project
 Find our deployed project [here](https://star-trumps.netlify.app/). </br>
 **Directions:** Press the start button, click on a category on the upfacing card to beat the down facing card. Please note that the image doesn’t change on the card but the information does. 
 
+## <a name="install"></a>Code Installation
+* Clone or download the repo.
+* Open terminal in VSCode and type `yarn && yarn start` to install yarn and start the server.
+
+### Demo
+![demo](./src/images/starttrumpsdemo.gif)
+
 ## <a name="tech"></a>Technologies Used
+**Front-End:**
 * React.js (hooks)
 * JavaScript (ES6)
+* JSX
 * SCSS
 * Axios
+* React Router DOM
+</br>
+
+**API Used:**
+* [Star Wars API](https://swapi.dev/)
+</br>
+
+**Dev Tools:**
 * Insomnia REST Client
 * Yarn
-* React Router DOM
-* [Star Wars API](https://swapi.dev/)
+* VSCode
+* Git
+* Github
+* Google Chrome Dev Tools
 * Adobe Photoshop
-* Git & Github
-* Netlify
+* Netlify (deployment)
+* Fontmeme.com (for header logo)
 
 ## <a name="brief"></a>Brief
 The app must:
-* Consume a public API
-* Have several components
-* Can have a router - with several “pages”
-* Include Wireframes designed before building the app
-* Be deployed online
+* Consume a public API.
+* Have several components.
+* Can have a router - with several “pages”.
+* Include Wireframes designed before building the app.
+* Be deployed online.
 
 ## <a name="process"></a>Process
 
@@ -54,12 +73,16 @@ We looked through catalogues of external APIs for some inspiration. We both like
 </br>
 We planned an MVP that would just be a simple comparison between two cards with win, lose and draw logic, with nice-to-haves being rounds of the game and an index of all of the cards. The Star Wars API had many different categories so we chose to focus on one - Starships - at first as it had the most easily comparable data, ie. lots of numbers. We practised accessing the data sets in Insomnia to make sure it was suitable for our purposes. </br>
 </br>
+
+#### Example of Data from API in Insomnia
+![insomnia](./src/images/insomnia1.png)
+
 I wireframed the two basic pages in Photoshop, screen sharing with Oli. Then we wrote pseudocode before getting our plan signed off by the tutors. </br>
 </br>
 
-### Wireframe for Home Component
+#### Wireframe for Home Component
 ![game-screenshot](./src/images/wireframe2.png)
-### Wireframe for Gameplay Component
+#### Wireframe for Gameplay Component
 ![game-screenshot](./src/images/wireframe1.png)
 
 ### Setting Up React
@@ -69,11 +92,12 @@ We decided to code the majority of the project using Live Share in VSCode, whils
 
 ### Building the Components
 We created the components: Home.js, Header.js, CardIndex.js and CardInfo.js. In each we made our imports and wrote a JavaScript function. In App.js we routed the components. </br>
-The Home and Header are very simple componets that just have to link to other places - the Home links to the game and the Header links to Home. </br>
-
-Initially we got the data from our external API in the CardIndex Component to pass as props to CardInfo. Quickly we realised this wasn't going to work for us based on our limited experience with React and decided it would be more straightforward to just hard-code two cards on the same component as the logic. </br>
-
-So we created a new component- CardShow- that would be our game-play component. We fetched the data using Axios and stored it in State. We kept the CardIndex and CardInfo incase we wanted to create an index display of all the cards.</br>
+</br>
+The Home and Header are very simple componets that just have to link to other places, using the Link from React Router DOM. The Home links to the game and the Header links to Home. </br>
+</br>
+Initially we retrieved the data from our external API in the CardIndex Component to pass as props to CardInfo. Quickly we realised this wasn't going to work for us based on our limited experience with React and decided it would be more straightforward to just hard-code two cards on the same component as the game logic. </br>
+</br>
+So we created a new component - CardShow - that would be our game-play component. We retrieved the data using Axios and stored it in State. We kept the CardIndex and CardInfo incase we wanted to create an index display of all the cards.</br>
 
 ```javascript
 const [cards, setCards] = useState(null)
@@ -116,14 +140,14 @@ win/lose/draw logic:
   }
 ```
 
-Oli did the conditional rendering so that when a button was clicked the down facing card flipped to a random upfacing card. 
+Oli coded the flipping card detail using a ternary operator in the JavaScript and backface-visibility in the CSS. 
 
 ### Manipulating the data
 It was very important that the data could be compariable with one another. This was something that was frustrating at first because we didn't for-see how mixed some of the data would be in our data set. 
 We figured out that we had to:
-- Change all data to a Number data type
+- Change all data to a Number data type.
 - Remove all commas, etc.
-- Turn any non-number (ie. n/a) into a number (0)
+- Turn any non-number (ie. n/a) into a number (0).
 
 ```javascript
 cardFaceUpName = cardFaceUpName.replace(/,/g, '')
@@ -151,7 +175,7 @@ const handlePlayAgain = event => {
 
 ### Styling 
 Once we’d finished our MVP we went straight into styling. We split up at this point to get it done quicker, allocating ourselves different areas so our code didn’t cause any merge conflicts. I added in the title made in a Font Creator App and worked on the cards - adding in the background image and editing the text, whilst my partner worked on the homepage then the win/lose/draw display on the game. 
-If we had more time it would have been good to make the cards look even more like authentic Top Trumps cards. 
+I scanned the back of one of my own Top Trump cards and uploaded it to be used as the back of our Star Trumps card. It would be nice to make the front of our cards authentically like the original top trumps cards, with curved edges and a similar design. I also sourced the images for all of the startships which we unfortunately did not get round to adding in. I created the Logo in fontmeme.com. 
 
 ## <a name="bugs"></a>Bugs
 - We managed to solve our major game play bugs before the Reactathon ended. 
@@ -161,14 +185,16 @@ If we had more time it would have been good to make the cards look even more lik
 - A very big obstacle we faced was that when we clicked on the buttons we would get errors, eventually we figured out it was becasue we had our onClick event on the span when it should have been on the button element.
 - Getting the images to show, a hyperlink didn't work, so we had to import it at the top. 
 - There was a merge conflict with our CSS very close to the end that we had to sort quickly. 
+- The API's data was more varied than we'd anticipated so we had to spend a good amount of time manipulating it for our comparisons. 
+- The lack of images in the API was an issue we ran out of time to get around. 
 
 ## <a name="wins"></a>Wins
-- Getting the game to work at MVP level
+- Getting the game to work at MVP level.
 - Pair-coding successfully. In coding the functionality together we could work through the more difficult bits together and impart each of our knowledge. It also meant we knew exactly what had to be done at all times- we were both on the same page. Towards the end our brains were getting tired but by working together we were able to push through. 
 
 ## <a name="future"></a>Future Improvements
-- Show the correct image with the correct card
-- Make styling on cards more realistic 
+- Show the correct image with the correct card.
+- Make styling on cards more realistic. 
 
 ## <a name="learning"></a>Key Learning
 - Collaborating creatively and Pair-coding successfully.
