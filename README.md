@@ -1,6 +1,6 @@
 
-# Project Two Reactathon - Star Trumps
 ![logo](./src/images/header/h2.png)
+# Project Two Reactathon - Star Trumps
 
 ## Contents
 [Overview](#overview)<br/>
@@ -17,7 +17,7 @@
 
 
 ## <a name="overview"></a>Overview
-The second Project on the SEI Immersive Course was to build a React application that consumes a public API. We had **48 hours** to complete this in a pair. My partner ([Oli Lewis](https://github.com/olilewis1))and I chose to make a simplified game of Top Trumps using a Star Wars API.
+The second Project on the SEI Immersive Course was to build a React application that consumes a public API. We had **48 hours** to complete this in a pair. My partner ([Oli Lewis](https://github.com/olilewis1)) and I chose to make a simplified game of Top Trumps using a Star Wars API.
 </br>
 
 ## <a name="project"></a>Link to Deployed Project
@@ -174,33 +174,38 @@ const handlePlayAgain = event => {
 ```
 
 ### Styling 
-Once we’d finished our MVP we went straight into styling. We split up at this point to get it done quicker, allocating ourselves different areas so our code didn’t cause any merge conflicts. I added in the title made in a Font Creator App and worked on the cards - adding in the background image and editing the text, whilst my partner worked on the homepage then the win/lose/draw display on the game. 
-I scanned the back of one of my own Top Trump cards and uploaded it to be used as the back of our Star Trumps card. It would be nice to make the front of our cards authentically like the original top trumps cards, with curved edges and a similar design. I also sourced the images for all of the startships which we unfortunately did not get round to adding in. I created the Logo in fontmeme.com. 
+Once we’d finished our MVP we went straight into styling. We split up at this point to get it done quicker, allocating ourselves different areas so our code didn’t cause any merge conflicts. </br>
+</br>
+I added in the title that I made on fontmeme.com and worked on the cards - adding in the background image and logo, whilst Oli worked on the homepage then the win/lose/draw display on the game page. </br>
+</br>
+I scanned the back of one of my own Top Trump cards and uploaded it to be used as the back of our Star Trumps card. It would be nice to make the front of our cards authentically like the original top trumps cards, with curved edges and a similar design. I also sourced the images for all of the starships which we unfortunately did not get round to adding in.
 
 ## <a name="bugs"></a>Bugs
-- We managed to solve our major game play bugs before the Reactathon ended. 
-- The only major thing we didn't have time to complete was getting our own images to display on the cards according to the startship it pictures. We had to just stick to one general image of Starships. 
+* We managed to solve our major game play bugs before the Reactathon ended. 
+* The only major thing we didn't have time to complete was getting our own images to display on the cards according to the starship it pictures. We had to just stick to one general image of Starships. 
 
 ## <a name="challenges"></a>Challenges
-- A very big obstacle we faced was that when we clicked on the buttons we would get errors, eventually we figured out it was becasue we had our onClick event on the span when it should have been on the button element.
-- Getting the images to show, a hyperlink didn't work, so we had to import it at the top. 
-- There was a merge conflict with our CSS very close to the end that we had to sort quickly. 
-- The API's data was more varied than we'd anticipated so we had to spend a good amount of time manipulating it for our comparisons. 
-- The lack of images in the API was an issue we ran out of time to get around. 
+* A very big obstacle we faced was that when we clicked on the buttons we would get errors. Eventually we figured out it was because we had our onClick event on the span when it should have been on the button element.
+* Getting the images to show. Our url link didn't work, so we had to import it at the top. 
+* There was a merge conflict with our CSS very close to the end that we had to sort quickly. 
+* The API's data was more varied than we'd anticipated so we had to spend a good amount of time manipulating it for our comparisons. 
+* The lack of images in the API was an issue we ran out of time to get around. 
 
 ## <a name="wins"></a>Wins
-- Getting the game to work at MVP level.
-- Pair-coding successfully. In coding the functionality together we could work through the more difficult bits together and impart each of our knowledge. It also meant we knew exactly what had to be done at all times- we were both on the same page. Towards the end our brains were getting tired but by working together we were able to push through. 
+* Getting the game to work at MVP level.
+* Pair-coding successfully. In coding the functionality together we could work through the more difficult bits together and impart each of our knowledge. It also meant we knew exactly what had to be done at all times- we were both on the same page. Towards the end our brains were getting tired but by working together we were able to push through. 
+* Taking a risk and building an app that was more than just retrieving and displaying data. 
 
 ## <a name="future"></a>Future Improvements
-- Show the correct image with the correct card.
-- Make styling on cards more realistic. 
+* Show the correct image with the correct card.
+* Make styling on cards more realistic. 
+* Have rounds of the game.  
 
 ## <a name="learning"></a>Key Learning
-- Collaborating creatively and Pair-coding successfully.
-- Keeping the code organised and commenting it.
-- Planning well before hand - we had to restart part of the functionality a good way into the first day because we approached it wrongly. 
-- Console logging regularly
+* Collaborating creatively and Pair-coding successfully.
+* Keeping the code organised and commenting it.
+* Look in depth at the API's data in Insomnia to for-see issues with it.
+* Console logging regularly.
 
 
 
