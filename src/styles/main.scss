@@ -1,12 +1,12 @@
 
-// * HOME PAGE
+// * ---------------------------------------------------------------------------------- HOME PAGE
 .home-body {
   background-color: black;
   text-align: center;
 }
 .instructions-div {
 }
-.instructions-div p{
+.instructions-div {
   font-family: "Lucida Console", Monaco, monospace;
   color: white;
   margin: 100px auto ;
@@ -40,7 +40,7 @@
   margin: 50px auto 0 auto;
   text-align: center;
 }
-// * HEADER
+// * ---------------------------------------------------------------------------------- HEADER
 // .title {
 //   background-image: "./images/header/h2.png";
 // }
@@ -50,10 +50,10 @@
   backface-visibility: hidden;
 }
 .header-wrapper img {
-  max-width: 500px;
+  max-width: 700px;
   margin-bottom: 10px;
 }
-// * GAME PAGE
+// * ---------------------------------------------------------------------------------- GAME PAGE
 p, div, button {
   color: white;
 }
@@ -65,7 +65,9 @@ p, div, button {
   height: 600px;
   // padding: 70px;
   margin: 0 auto;
-  border: none;
+  // border: 1px solid blue;
+  margin-top: 60px;
+
 }
 .card-single-container {
   // border: solid 1px grey;
@@ -74,6 +76,7 @@ p, div, button {
   background-image: url('../images/cardfrontbg.jpg');
   background-repeat: no-repeat;
   background-size: 110%;
+  // border: 1px solid rgb(255, 166, 166);
 }
 .card-header {
   display: flex;
@@ -140,28 +143,11 @@ body {
   transition: all .4s linear;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  // border: 1px solid red;
+  margin: 0;
 }
-.face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  line-height: 300px;
-  color: white;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
+
 // card flip
-.card {
-  width: 340px;
-  height: 580px;
-  margin: 0 auto;
-  position: relative;
-  -webkit-transition: all .4s linear;
-  transition: all .4s linear;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
 .face {
   position: absolute;
   width: 100%;
@@ -171,6 +157,7 @@ body {
   color: white;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  // border: 1px solid rgb(21, 255, 0);
 }
 .front {
   color:black;
@@ -182,6 +169,8 @@ body {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
   font-size:x-small;
+  // border: 1px solid rgb(21, 255, 0);
+  margin: 0;
 }
 .card:hover {
   -webkit-transform: rotateY(180deg);
@@ -190,27 +179,31 @@ body {
 .result {
   background-color: #000000;
   color:#FFE81F;
-  margin-right: 10px;
+  margin-right: 50px;
   font-weight: 900;
   font-size:25px;
+  // border: 1px solid rgb(0, 26, 255);
 }
 .footer-container {
   display:flex;
   justify-content: center;
+  // border: 1px solid red;
 }
 .play-again-button {
-  background-color: Transparent;
-    background-repeat:no-repeat;
-  color:#FFE81F;
+  background-color: rgb(255, 226, 62);
+  border-radius: 20px;
+  background-repeat:no-repeat;
+  color:#000000;
   font-weight: bold;
-  font-size:20px;
-  text-decoration: underline;
+  font-size: 20px;
+  text-decoration: none;
+  // border: 1px solid green;
 }
 .display-nothing {
   font-size: 0%;
 }
-p {
-  background-color: white;
+.back-button {
+  background-color: rgb(255, 255, 255);
   border-radius: 25px;
   padding: 1px;
   margin:18px;
@@ -218,10 +211,11 @@ p {
   display: flex;
   justify-content: center;
   color: black;
+  // border: 1px solid blue;
 }
 .name-of-starship {
   border-radius: 5px;
 }
-.instructions-div p{
-  color: black;
-}
+// .instructions-div p{
+//   color: black;
+// }

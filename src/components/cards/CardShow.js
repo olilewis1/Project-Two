@@ -97,15 +97,15 @@ const CardShow = ( ) => {
 
     if (cardFaceUpName < cardFaceDownName) {
       console.log('you lose')
-      setResult('lose')
+      setResult('You Lost!')
     }
     if (cardFaceUpName > cardFaceDownName) {
       console.log('you win')
-      setResult('win')
+      setResult('You Won!')
     }
     if (cardFaceUpName === cardFaceDownName) {
       console.log('you draw')
-      setResult('draw')
+      setResult('You Drew!')
     }
 
     console.log('event', event)
@@ -148,11 +148,11 @@ const CardShow = ( ) => {
           </div>
           <div className="image"><img src={starships}/></div>
           <div className="information">
-            <p>Passengers - {cardFaceDown.passengers} </p>
-            <p>Megalights Per hour - {cardFaceDown.MGLT} </p>
-            <p>Cost - {cardFaceDown.cost_in_credits}</p>
-            <p>Length - {cardFaceDown.length} </p>
-            <p>Hyperdrive rating - {cardFaceDown.hyperdrive_rating} </p>
+            <p className="back-button">Passengers - {cardFaceDown.passengers} </p>
+            <p className="back-button">Megalights Per hour - {cardFaceDown.MGLT} </p>
+            <p className="back-button">Cost - {cardFaceDown.cost_in_credits}</p>
+            <p className="back-button">Length - {cardFaceDown.length} </p>
+            <p className="back-button">Hyperdrive rating - {cardFaceDown.hyperdrive_rating} </p>
           </div>
         </div>
         
