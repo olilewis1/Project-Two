@@ -129,7 +129,7 @@ const CardShow = ( ) => {
         <div className="card-single-container">
           <div className="card-header">
             <div className="logo"></div>
-            <p className="name-of-starship">{cardFaceUp.name} </p>
+            <p id="name-of-starship">{cardFaceUp.name}</p>
           </div>
           <div className="image"><img src={starships}/>
           </div> 
@@ -144,7 +144,7 @@ const CardShow = ( ) => {
         <div className={!hasClickedEvent ? 'card-single-container back card display-nothing' : 'card-single-container front card'}> 
           <div className="card-header">
             <div className="logo"></div>
-            <p className="name-of-starship">{cardFaceDown.name} </p>
+            <p id="name-of-starship">{cardFaceDown.name} </p>
           </div>
           <div className="image"><img src={starships}/></div>
           <div className="information">
