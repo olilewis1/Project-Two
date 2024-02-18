@@ -17,7 +17,7 @@
 
 
 ## <a name="overview"></a>Overview
-The second Project on the SEI Immersive Course was to build a React application that consumes a public API. We had **48 hours** to complete this in a pair. My partner ([Oli Lewis](https://github.com/olilewis1)) and I chose to make a simplified game of Top Trumps using a Star Wars API.
+The second Project on the SEI Immersive Course was to build a React application that consumes a public API. We had **48 hours** to complete this in a pair. My partner ([Anna Monkman](https://github.com/annamonkman)) and I chose to make a simplified game of Top Trumps using a Star Wars API.
 </br>
 
 ## <a name="project"></a>Link to Deployed Project
