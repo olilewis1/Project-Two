@@ -77,7 +77,7 @@ We planned an MVP that would just be a simple comparison between two cards with 
 #### Example of Data from API in Insomnia
 ![insomnia](./src/images/insomnia1.png)
 
-I wireframed the two basic pages in Photoshop, screen sharing with Oli. Then we wrote pseudocode before getting our plan signed off by the tutors. </br>
+I wireframed the two basic pages in Photoshop, screen sharing with Anna. Then we wrote pseudocode before getting our plan signed off by the tutors. </br>
 </br>
 
 #### Wireframe for Home Component
@@ -140,7 +140,7 @@ win/lose/draw logic:
   }
 ```
 
-Oli coded the flipping card detail using a ternary operator in the JavaScript and backface-visibility in the CSS. 
+I coded the flipping card detail using a ternary operator in the JavaScript and backface-visibility in the CSS. 
 
 ### Manipulating the data
 It was very important that the data could be compariable with one another. This was something that was frustrating at first because we didn't for-see how mixed some of the data would be in our data set. 
@@ -176,7 +176,7 @@ const handlePlayAgain = event => {
 ### Styling 
 Once we’d finished our MVP we went straight into styling. We split up at this point to get it done quicker, allocating ourselves different areas so our code didn’t cause any merge conflicts. </br>
 </br>
-I added in the title that I made on fontmeme.com and worked on the cards - adding in the background image and logo, whilst Oli worked on the homepage then the win/lose/draw display on the game page. </br>
+Anna added in the title that I made on fontmeme.com and worked on the cards - adding in the background image and logo, whilst I worked on the homepage then the win/lose/draw display on the game page. </br>
 </br>
 I scanned the back of one of my own Top Trump cards and uploaded it to be used as the back of our Star Trumps card. It would be nice to make the front of our cards authentically like the original top trumps cards, with curved edges and a similar design. I also sourced the images for all of the starships which we unfortunately did not get round to adding in.
 
