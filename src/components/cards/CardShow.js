@@ -22,6 +22,7 @@ const CardShow = ( ) => {
   const [result, setResult] = useState('')
 
   // const win = 'win'
+  
   // * GET DATA
 
   useEffect(() => {
@@ -36,7 +37,6 @@ const CardShow = ( ) => {
   useEffect(() => { 
     if (!cards) return null
     setCardFaceUp(cards[Math.floor(Math.random() * 10)])
-
   }, [cards])
 
   useEffect(() => {
@@ -97,15 +97,15 @@ const CardShow = ( ) => {
 
     if (cardFaceUpName < cardFaceDownName) {
       console.log('you lose')
-      setResult('lose')
+      setResult('You Lost!')
     }
     if (cardFaceUpName > cardFaceDownName) {
       console.log('you win')
-      setResult('win')
+      setResult('You Won!')
     }
     if (cardFaceUpName === cardFaceDownName) {
       console.log('you draw')
-      setResult('draw')
+      setResult('You Drew!')
     }
 
     console.log('event', event)
@@ -129,7 +129,7 @@ const CardShow = ( ) => {
         <div className="card-single-container">
           <div className="card-header">
             <div className="logo"></div>
-            <p className="name-of-starship">{cardFaceUp.name} </p>
+            <p id="name-of-starship">{cardFaceUp.name}</p>
           </div>
           <div className="image"><img src={starships}/>
           </div> 
@@ -144,15 +144,15 @@ const CardShow = ( ) => {
         <div className={!hasClickedEvent ? 'card-single-container back card display-nothing' : 'card-single-container front card'}> 
           <div className="card-header">
             <div className="logo"></div>
-            <p className="name-of-starship">{cardFaceDown.name} </p>
+            <p id="name-of-starship">{cardFaceDown.name} </p>
           </div>
           <div className="image"><img src={starships}/></div>
           <div className="information">
-            <p>Passengers - {cardFaceDown.passengers} </p>
-            <p>Megalights Per hour - {cardFaceDown.MGLT} </p>
-            <p>Cost - {cardFaceDown.cost_in_credits}</p>
-            <p>Length - {cardFaceDown.length} </p>
-            <p>Hyperdrive rating - {cardFaceDown.hyperdrive_rating} </p>
+            <p className="back-button">Passengers - {cardFaceDown.passengers} </p>
+            <p className="back-button">Megalights Per hour - {cardFaceDown.MGLT} </p>
+            <p className="back-button">Cost - {cardFaceDown.cost_in_credits}</p>
+            <p className="back-button">Length - {cardFaceDown.length} </p>
+            <p className="back-button">Hyperdrive rating - {cardFaceDown.hyperdrive_rating} </p>
           </div>
         </div>
         
